@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Products",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "availableQuantity": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "productId": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "ages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::age.age",
+      "mappedBy": "products"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::order.order",
+      "mappedBy": "products"
+    },
+    "genders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::gender.gender",
+      "mappedBy": "products"
+    }
+  }
+}

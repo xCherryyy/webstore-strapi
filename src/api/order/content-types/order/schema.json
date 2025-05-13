@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Orders",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "orders"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "cancelled",
+        "ordered",
+        "packed",
+        "sent"
+      ]
+    },
+    "delivery": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "express"
+      ]
+    },
+    "clients": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::client.client",
+      "inversedBy": "orders"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    }
+  }
+}

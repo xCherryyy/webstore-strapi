@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ages",
+  "info": {
+    "singularName": "age",
+    "pluralName": "ages",
+    "displayName": "Age",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "ages"
+    },
+    "age_group": {
+      "type": "enumeration",
+      "enum": [
+        "a0",
+        "a4",
+        "a8",
+        "a13"
+      ]
+    }
+  }
+}
